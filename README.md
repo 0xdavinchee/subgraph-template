@@ -1,5 +1,5 @@
 # Subgraph Starter Project
-
+<!-- TODO -->
 ## Main files required:
 
 ### Manifest File: `subgraph.yaml`
@@ -13,9 +13,9 @@ A `.graphql` file which specifies the different types of entities or objects whi
 
 ### Mapping File(s): `src/mappings/*.ts`
 The core logic
-
+<!-- TODO -->
 ## General Best Practices
-
+<!-- TODO -->
 ### Unit Tests
 Simple tests to ensure that your mapping logic is working as expected. 
 
@@ -25,3 +25,4 @@ Simple tests to ensure that your mapping logic is working as expected.
 Slightly more involved tests which involve spinning up a local subgraph, executing transactions against a local blockchain and testing queries to ensure that events are mapped properly and querying the events work as expected.
 
 ### Multi-Network Deployment
+<!-- TODO -->
