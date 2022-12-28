@@ -1,0 +1,36 @@
+specVersion: 0.0.5
+description: Subgraph for the Lock contract in the foundry-hardhat template.
+repository: https://github.com/0xdavinchee/subgraph-template
+schema:
+    file: ./schema.graphql
+dataSources:
+    - kind: ethereum/contract
+      name: Lock
+      network: goerli
+      source:
+          abi: Lock
+          address: "0x0000000000000000000000000000000000000000"
+          startBlock: 0
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.7
+          language: wasm/assemblyscript
+          file: ./src/mappings/lock.ts
+          entities:
+              - NewOwnerEvent
+              - NewUnlockTimeEvent
+              - WithdrawalEvent
+              - Owner
+          abis:
+              - name: Lock
+                file: ./abis/Lock.json
+          eventHandlers:
+              - event: NewOwner(indexed address,indexed address)
+                handler: handleNewOwner
+                receipt: true
+              - event: NewUnlockTime(indexed address,uint64)
+                handler: handleNewUnlockTime
+                receipt: true
+              - event: Withdrawal(uint256)
+                handler: handleWithdrawal
+                receipt: true

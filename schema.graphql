@@ -1,0 +1,113 @@
+##################
+# Event Entities #
+##################
+"""
+Event: An interface which is shared by all event entities and contains basic transaction data.
+"""
+interface Event {
+    """
+    The id of the event entity.
+    """
+    id: ID!
+
+    """
+    The block timestamp which the event was logged in.
+    """
+    timestamp: BigInt!
+
+    """
+    The block number which the event was logged in.
+    """
+    blockNumber: BigInt!
+
+    """
+    The transaction hash of the transaction that the event was logged in.
+    """
+    transactionHash: Bytes!
+
+    """
+    The gas price of the transaction that the event was logged in.
+    """
+    gasPrice: BigInt!
+
+    """
+    The index of the event, e.g. first event emitted would have `logIndex` of 0.
+    """
+    logIndex: BigInt!
+
+    """
+    The name of the event - is a 1-to-1 match with the name in our smart contracts.
+    """
+    name: String!
+
+    """
+    The gas limit of the transaction that the event was logged in.
+    """
+    gasLimit: BigInt!
+
+    """
+    The gas used for this transaction.
+    """
+    gasUsed: BigInt!
+}
+
+type NewOwnerEvent implements Event @entity(immutable: true) {
+    id: ID!
+    timestamp: BigInt!
+    blockNumber: BigInt!
+    transactionHash: Bytes!
+    gasPrice: BigInt!
+    logIndex: BigInt!
+    name: String!
+    gasLimit: BigInt!
+    gasUsed: BigInt!
+
+    """
+    The previous owner of the Lock contract.
+    """
+    oldOwner: Bytes!
+    
+    """
+    The new owner of the Lock contract.
+    """
+    newOwner: Bytes!
+}
+
+type NewUnlockTimeEvent implements Event @entity(immutable: true) {
+    id: ID!
+    timestamp: BigInt!
+    blockNumber: BigInt!
+    transactionHash: Bytes!
+    gasPrice: BigInt!
+    logIndex: BigInt!
+    name: String!
+    gasLimit: BigInt!
+    gasUsed: BigInt!
+
+    """
+    The owner of the Lock contract who set the new unlock time.
+    """
+    owner: Bytes!
+    
+    """
+    The new unlock time of the Lock contract.
+    """
+    newUnlockTime: BigInt!
+}
+
+type WithdrawalEvent implements Event @entity(immutable: true) {
+    id: ID!
+    timestamp: BigInt!
+    blockNumber: BigInt!
+    transactionHash: Bytes!
+    gasPrice: BigInt!
+    logIndex: BigInt!
+    name: String!
+    gasLimit: BigInt!
+    gasUsed: BigInt!
+
+    """
+    The amount withdrawn from the Lock contract.
+    """
+    amount: BigInt!
+}

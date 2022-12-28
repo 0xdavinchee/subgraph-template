@@ -1,0 +1,40 @@
+{
+  "name": "subgraph-template",
+  "version": "0.0.1",
+  "description": "a subgraph starter template",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "graph build",
+    "codegen": "graph codegen",
+    "dev": "nodemon -e ts -x yarn test",
+    "test": "graph test",
+    "deploy:hosted": "./tasks/deploy-to-hosted-service-network.sh",
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xdavinchee/subgraph-template.git"
+  },
+  "keywords": [
+    "subgraph",
+    "web3",
+    "the",
+    "graph",
+    "graphql"
+  ],
+  "author": "0xdavinchee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/0xdavinchee/subgraph-template/issues"
+  },
+  "homepage": "https://github.com/0xdavinchee/subgraph-template#readme",
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.37.1",
+    "@graphprotocol/graph-ts": "^0.29.1",
+    "matchstick-as": "^0.5.0",
+    "nodemon": "^2.0.20"
+  }
+}

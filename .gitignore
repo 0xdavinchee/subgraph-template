@@ -1,0 +1,8 @@
+node_modules
+generated
+abis/
+
+# matchstick test output
+tests/.bin
+**/*.wasm
+**/*.latest.json
